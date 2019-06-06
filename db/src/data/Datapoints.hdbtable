@@ -1,0 +1,12 @@
+COLUMN TABLE "IOTDB::Datapoints" (
+"DATAPOINTID" INTEGER CS_INT NOT NULL COMMENT 'ID des Sensorskanals vom CCU-Historian',
+"TABLE_NAME" NVARCHAR(60) COMMENT 'Name der Tabelle im CCU-Historian',
+"ADDRESS" NVARCHAR(20) COMMENT 'Adresse bzw. Serialnummer des Sensors',
+"IDENTIFIER" NVARCHAR(40) COMMENT 'Art des Sensors z.B. ACTUAL_TEMPERATURE etc.',
+"NAME" NVARCHAR(60) COMMENT 'Name des Sensors',
+"MAXIMUM" DECIMAL(15,1) CS_FIXED COMMENT 'Maximalwert',
+"UNIT" NVARCHAR(10) COMMENT 'Einheit z.B. °C',
+"MINIMUM" DECIMAL(15,1) CS_FIXED COMMENT 'Minimalwert',
+"TYPE" NVARCHAR(10) COMMENT 'Typ z.B. FLOAT, BOOL etc.',
+PRIMARY KEY ("DATAPOINTID"))
+COMMENT 'Datenpunktverzeichnis für CCU-Historian'
