@@ -1,0 +1,11 @@
+VIEW "IOTDB::IoTData" COMMENT 'View auf relevante IoT-Datensätze'(
+"DATAPOINTID",
+"NAME",
+"TIMESTAMP",
+"VALUE",
+"UNIT",
+"STATE")
+AS SELECT a."DATAPOINTID", a."NAME", b."TIMESTAMP", b."VALUE", a."UNIT", b."STATE"
+FROM "IOTDB::Datapoints" AS a INNER JOIN "IOTDB::Data" AS b
+ON a."DATAPOINTID" = b."DATAPOINTID" WITH READ ONLY
+
