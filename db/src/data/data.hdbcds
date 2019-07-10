@@ -1,0 +1,13 @@
+namespace IOTDB;
+
+/*@@layout{"layoutInfo":{"x":-249,"y":-92}}*/
+context data {
+    entity dashboard {
+        key result : String(100);
+            name   : String(100);
+    }
+
+    entity sensor {
+        key result : String(100);
+    }
+};

@@ -1,0 +1,8 @@
+{
+	"role":{
+		"name": "IOTDB::default",
+		"schema_roles": [{
+		 "names": ["IOTDB::admin"]
+		}] 
+	}
+}

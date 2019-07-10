@@ -1,0 +1,3 @@
+service { 
+ "iot.IOTDB::IoTData" as "temperature" keys generate local "DATAPOIN"; 
+}

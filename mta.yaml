@@ -2,16 +2,51 @@ ID: IOTDB
 _schema-version: '2.1'
 description: Datenbank für IOT-Jamsession-Daten
 version: 0.0.1
-
 modules:
- - name: db
-   type: hdb
-   path: db
-   requires:
-    - name: hdi_db
-
+  - name: db
+    type: hdb
+    path: db
+    requires:
+      - name: hdi_db
+        properties:
+          TARGET_CONTAINER: '~{hdi-container-name}'
+      - name: cross-container-service-1
+        group: SERVICE_REPLACEMENTS
+        properties:
+          key: ServiceName_1
+          service: '~{the-service-name}'
+  - name: js
+    type: nodejs
+    path: js
+    requires:
+      - name: hdi_db
+      - name: db
+    provides:
+      - name: js_api
+        properties:
+          service_url: '${default-url}'
+  - name: iotweb
+    type: html5
+    path: iotweb
+    requires:
+      - name: hdi_db
+        group: destinations
+        properties:
+          name: js_be
+          url: '~{service_url}'
 resources:
- - name: hdi_db
-   properties:
-      hdi-container-name: ${service-name}
-   type: com.sap.xs.hdi-container
+  - name: hdi_db
+    properties:
+      hdi-container-name: '${service-name}'
+    type: com.sap.xs.hdi-container
+    parameters:
+      service-name: hdi_db
+      config:
+        schema: iot
+        makeUniqueName: false
+  - name: cross-container-service-1
+    parameters:
+      service-name: UAA-service
+    properties:
+      the-service-name: '${service-name}'
+    type: org.cloudfoundry.existing-service

@@ -1,0 +1,3 @@
+service {
+	"iot.IOTDB::myview" as "MydataSet" keys generate local "DATAPOINTID";
+}

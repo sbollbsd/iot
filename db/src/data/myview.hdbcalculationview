@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" id="IOTDB::myview" applyPrivilegeType="NONE" dataCategory="DEFAULT" schemaVersion="3.0" outputViewType="Projection" cacheInvalidationPeriod="NONE" enforceSqlExecution="false">
+<descriptions defaultDescription="myview"/>
+<localVariables/>
+<variableMappings/>
+<dataSources>
+  <DataSource id="IOTDB::Datapoints">
+    <resourceUri>IOTDB::Datapoints</resourceUri>
+  </DataSource>
+</dataSources>
+<calculationViews>
+  <calculationView xsi:type="Calculation:ProjectionView" id="Projection_1" filterExpressionLanguage="SQL">
+    <viewAttributes>
+      <viewAttribute id="DATAPOINTID">
+        <descriptions defaultDescription="ID des Sensorskanals vom CCU-Historian"/>
+      </viewAttribute>
+      <viewAttribute id="TABLE_NAME">
+        <descriptions defaultDescription="Name der Tabelle im CCU-Historian"/>
+      </viewAttribute>
+      <viewAttribute id="NAME">
+        <descriptions defaultDescription="Name des Sensors"/>
+      </viewAttribute>
+      <viewAttribute id="UNIT">
+        <descriptions defaultDescription="Einheit z.B. °C"/>
+      </viewAttribute>
+    
+      <viewAttribute id="ADDRESS">
+        <descriptions defaultDescription="Adresse bzw. Serialnummer des Sensors"/>
+      </viewAttribute>
+      <viewAttribute id="IDENTIFIER">
+        <descriptions defaultDescription="Art des Sensors z.B. ACTUAL_TEMPERATURE etc."/>
+      </viewAttribute>
+      <viewAttribute id="MAXIMUM">
+        <descriptions defaultDescription="Maximalwert"/>
+      </viewAttribute>
+      <viewAttribute id="MINIMUM">
+        <descriptions defaultDescription="Minimalwert"/>
+      </viewAttribute>
+      <viewAttribute id="TYPE">
+        <descriptions defaultDescription="Typ z.B. FLOAT, BOOL etc."/>
+      </viewAttribute>
+    </viewAttributes>
+    <calculatedViewAttributes/>
+    <restrictedViewAttributes/>
+    <input node="IOTDB::Datapoints">
+      <mapping xsi:type="Calculation:AttributeMapping" target="DATAPOINTID" source="DATAPOINTID"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TABLE_NAME" source="TABLE_NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="NAME" source="NAME"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="UNIT" source="UNIT"/>
+    
+      <mapping xsi:type="Calculation:AttributeMapping" target="ADDRESS" source="ADDRESS"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="IDENTIFIER" source="IDENTIFIER"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MAXIMUM" source="MAXIMUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="MINIMUM" source="MINIMUM"/>
+      <mapping xsi:type="Calculation:AttributeMapping" target="TYPE" source="TYPE"/>
+    </input>
+  </calculationView>
+</calculationViews>
+<logicalModel id="Projection_1">
+  <attributes>
+    <attribute id="NAME" order="1" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name des Sensors"/>
+      <keyMapping columnObjectName="Projection_1" columnName="NAME"/>
+    </attribute>
+    <attribute id="DATAPOINTID" order="2" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="ID des Sensorskanals vom CCU-Historian"/>
+      <keyMapping columnObjectName="Projection_1" columnName="DATAPOINTID"/>
+    </attribute>
+    <attribute id="TABLE_NAME" order="3" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Name der Tabelle im CCU-Historian"/>
+      <keyMapping columnObjectName="Projection_1" columnName="TABLE_NAME"/>
+    </attribute>
+    <attribute id="UNIT" order="4" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Einheit z.B. °C"/>
+      <keyMapping columnObjectName="Projection_1" columnName="ADDRESS"/>
+    </attribute>
+    <attribute id="IDENTIFIER" order="5" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Art des Sensors z.B. ACTUAL_TEMPERATURE etc."/>
+      <keyMapping columnObjectName="Projection_1" columnName="IDENTIFIER"/>
+    </attribute>
+    <attribute id="MAXIMUM" order="6" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Maximalwert"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MAXIMUM"/>
+    </attribute>
+    <attribute id="MINIMUM" order="7" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Minimalwert"/>
+      <keyMapping columnObjectName="Projection_1" columnName="MINIMUM"/>
+    </attribute>
+    <attribute id="TYPE" order="8" displayAttribute="false" attributeHierarchyActive="false">
+      <descriptions defaultDescription="Typ z.B. FLOAT, BOOL etc."/>
+      <keyMapping columnObjectName="Projection_1" columnName="TYPE"/>
+    </attribute>
+  </attributes>
+  <calculatedAttributes/>
+  <baseMeasures/>
+  <calculatedMeasures/>
+  <restrictedMeasures/>
+</logicalModel>
+<layout>
+  <shapes>
+    <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+      <upperLeftCorner x="40" y="85"/>
+    </shape>
+  
+    <shape expanded="false" modelObjectName="Projection_1" modelObjectNameSpace="CalculationView">
+      <upperLeftCorner x="-158" y="196"/>
+      <rectangleSize height="30" width="160"/>
+    </shape>
+  </shapes>
+</layout>
+</Calculation:scenario>

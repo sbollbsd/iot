@@ -1,0 +1,10 @@
+{
+  "cross-container-service-1": {
+    "object_owner" : {
+      "container_roles":[ "admin"]
+    },
+    "application_user" : {
+      "container_roles":["admin"]
+    }
+  }
+}

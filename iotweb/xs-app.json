@@ -1,0 +1,8 @@
+{
+	"welcomeFile": "webapp/index.html",
+	"authenticationMethod": "none",
+	"routes": [{
+		"source": "^/temperature.xsodata/.*$", 
+		"destination": "js_be"
+		}]
+}
