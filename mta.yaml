@@ -26,6 +26,8 @@ modules:
       - name: js_api
         properties:
           url: '${default-url}'
+    properties:
+      NODE_TLS_REJECT_UNAUTHORIZED: 0
   - name: iotweb
     type: html5
     path: iotweb

@@ -1,9 +1,7 @@
 {
 	"dependencies": {
 		"@sap/xsjs": "3.3.7",
-		"@sap/xsenv": "1.2.9",
-		"express": "~4.15",
-		"passport": "~0.3.2"
+		"@sap/xsenv": "1.2.9"
 	},
 	"devDependencies": {
 		"@sap/xsjs-test": "2.0.16"
