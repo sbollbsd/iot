@@ -1,8 +1,18 @@
 {
-	"welcomeFile": "webapp/index.html",
-	"authenticationMethod": "none",
+	"welcomeFile": "index.html",
+	"authenticationMethod": "route",
 	"routes": [{
-		"source": "^/temperature.xsodata/.*$", 
-		"destination": "js_be"
-		}]
+
+		"source": "/node(.*)",
+		"destination": "core-backend",
+		"csrfProtection": true,
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "^/service.xsodata/.*$",
+		"destination": "js_be",
+		"authenticationType": "xsuaa"
+	}, {
+		"source": "^/temperature.xsodata/.*$",
+		"destination": "core-backend"
+	}]
 }

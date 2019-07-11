@@ -34,6 +34,7 @@ modules:
         properties:
           name: js_be
           url: '~{service_url}'
+      - name: UAA-service
 resources:
   - name: hdi_db
     properties:
@@ -50,3 +51,7 @@ resources:
     properties:
       the-service-name: '${service-name}'
     type: org.cloudfoundry.existing-service
+  - name: UAA-service
+    type: com.sap.xs.uaa-space
+    parameters:
+      config-path: ./xs-security.json
