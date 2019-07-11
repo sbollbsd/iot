@@ -10,7 +10,7 @@ modules:
       - name: hdi_db
         properties:
           TARGET_CONTAINER: '~{hdi-container-name}'
-      - name: cross-container-service-1
+      - name: UAA-service
         group: SERVICE_REPLACEMENTS
         properties:
           key: ServiceName_1
@@ -21,19 +21,26 @@ modules:
     requires:
       - name: hdi_db
       - name: db
+      - name: UAA-service
     provides:
       - name: js_api
         properties:
-          service_url: '${default-url}'
+          url: '${default-url}'
   - name: iotweb
     type: html5
     path: iotweb
     requires:
+      - name: js_api
+        group: destinations
+        properties:
+          name: core-xsjs-backend
+          url: '~{service_url}'
+          forwardAuthToken: true
       - name: hdi_db
         group: destinations
         properties:
           name: js_be
-          url: '~{service_url}'
+          url: '~{service-url}'
       - name: UAA-service
 resources:
   - name: hdi_db
@@ -43,14 +50,8 @@ resources:
     parameters:
       service-name: hdi_db
       config:
-        schema: iot
+        schema: DB
         makeUniqueName: false
-  - name: cross-container-service-1
-    parameters:
-      service-name: UAA-service
-    properties:
-      the-service-name: '${service-name}'
-    type: org.cloudfoundry.existing-service
   - name: UAA-service
     type: com.sap.xs.uaa-space
     parameters:

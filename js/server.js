@@ -7,7 +7,7 @@ var xsjs = require("@sap/xsjs");
 var xsenv = require("@sap/xsenv");
 var port = process.env.PORT || 30000;
 var server = require("http").createServer();
-
+/*
 https.globalAgent.options.ca = xsenv.loadCertificates();
 
 global.__base = __dirname + "/";
@@ -27,15 +27,15 @@ server.on("request", app);
 
 server.listen(port, function () {
 	console.info("HTTP Server: " + server.address().port);
-});
+});*/
 
-/*var options = {
+var options = {
 	anonymous: true, // remove to authenticate calls
 	redirectUrl: "/index.xsjs"
-};*/
+};
 
 // configure HANA
-/*try {
+try {
 	options = Object.assign(options, xsenv.getServices({
 		hana: {
 			tag: "hana"
@@ -54,9 +54,9 @@ try {
 	}));
 } catch (err) {
 	console.log("[WARN]", err.message);
-}*/
+}
 
 // start server
-//xsjs(options).listen(port);
+xsjs(options).listen(port);
 
 console.log("Server listening on port %d", port);

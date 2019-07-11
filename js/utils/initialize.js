@@ -1,4 +1,5 @@
 /*eslint no-console: 0, no-unused-vars: 0*/
+//https://github.com/SAPDocuments/Tutorials/blob/master/tutorials/xsa-node-modules/xsa-node-modules.md
 "use strict";
 module.exports = {
 	initExpress: function () {
@@ -12,7 +13,7 @@ module.exports = {
 		var logging = require("@sap/logging");
 		var appContext = logging.createAppContext();
 
-		//Initialize Express App for XS UAA and HDBEXT Middleware
+		//Initialize Express App for XS UAA and HDBEXT Middleware. using a JWT (JSON web token) strategy
 		var app = express();
 		passport.use("JWT", new xssec.JWTStrategy(xsenv.getServices({
 			uaa: {
@@ -34,7 +35,7 @@ module.exports = {
 		);
 		return app;
 	},
-
+};
 	initXSJS: function (app) {
 		//	process.env.XS_APP_LOG_LEVEL='debug';
 		var xsjs = require("@sap/xsjs");
